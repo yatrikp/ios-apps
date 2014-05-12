@@ -4,6 +4,12 @@ App to simply calculate the tip based on percentage selected.
 Shows up the total amount with an option to clear the entered values.
 
 
+Code Structure
+
+Source code dir tipcalculator "app" module
+Built usig XCode 5
+
+
 Screenshots
 
 &nbsp;&nbsp;
