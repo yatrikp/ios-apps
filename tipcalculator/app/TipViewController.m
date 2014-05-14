@@ -7,6 +7,7 @@
 //
 
 #import "TipViewController.h"
+#import "SettingsViewController.h"
 
 @interface TipViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *billTextField;
@@ -18,7 +19,7 @@
 - (IBAction)resetButtonTapped:(id)sender;
 @end
 
-@implementation TipViewController   
+@implementation TipViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,8 +34,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     [self updateValues];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(onSettingsButton)];
 }
+
+// on click event of Settings Button
+- (void)onSettingsButton {
+    [self.navigationController pushViewController:[[SettingsViewController alloc] init] animated:YES];
+}
+
 
 // if memory warning received
 - (void)didReceiveMemoryWarning
@@ -65,4 +74,28 @@
     self.tipControl.selectedSegmentIndex = 0;
     [self updateValues];
 }
+
+
+- (void)viewWillAppear:(BOOL)animated {
+    NSLog(@"view will appear");
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    int intValue = [defaults integerForKey:@"defaultTipControlIndex"];
+    self.tipControl.selectedSegmentIndex = intValue;
+    [self updateValues];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    NSLog(@"view did appear");
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    NSLog(@"view will disappear");
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    NSLog(@"view did disappear");
+}
+
+
+
 @end
