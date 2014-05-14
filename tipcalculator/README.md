@@ -1,10 +1,19 @@
 ios-apps ---> tipcalculator
+===========================
 
-App to simply calculate the tip based on percentage selected.
-Shows up the total amount with an option to clear the entered values.
+* App to simply calculate the tip based on percentage selected.
+* Shows up the total amount with an option to clear the entered values.
+
+
+Code Structure
+--------------
+
+* Source code dir tipcalculator "app" module
+* Built usig XCode 5
 
 
 Screenshots
+-----------
 
 &nbsp;&nbsp;
 <img src="https://github.com/yatrikp/ios-apps/raw/master/tipcalculator/screenshots/load_app.png" width="200" />
